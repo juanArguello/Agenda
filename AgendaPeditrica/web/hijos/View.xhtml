@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewHijosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewHijosLabel_id}"/>
+                    <h:outputText value="#{hijosController.selected.id}" title="#{bundle.ViewHijosTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewHijosLabel_cedula}"/>
+                    <h:outputText value="#{hijosController.selected.cedula}" title="#{bundle.ViewHijosTitle_cedula}"/>
+                    <h:outputText value="#{bundle.ViewHijosLabel_nombre}"/>
+                    <h:outputText value="#{hijosController.selected.nombre}" title="#{bundle.ViewHijosTitle_nombre}"/>
+                    <h:outputText value="#{bundle.ViewHijosLabel_apellido}"/>
+                    <h:outputText value="#{hijosController.selected.apellido}" title="#{bundle.ViewHijosTitle_apellido}"/>
+                    <h:outputText value="#{bundle.ViewHijosLabel_fechaNacimiento}"/>
+                    <h:outputText value="#{hijosController.selected.fechaNacimiento}" title="#{bundle.ViewHijosTitle_fechaNacimiento}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewHijosLabel_lugarNacimiento}"/>
+                    <h:outputText value="#{hijosController.selected.lugarNacimiento}" title="#{bundle.ViewHijosTitle_lugarNacimiento}"/>
+                    <h:outputText value="#{bundle.ViewHijosLabel_edad}"/>
+                    <h:outputText value="#{hijosController.selected.edad}" title="#{bundle.ViewHijosTitle_edad}"/>
+                    <h:outputText value="#{bundle.ViewHijosLabel_sexo}"/>
+                    <h:outputText value="#{hijosController.selected.sexo}" title="#{bundle.ViewHijosTitle_sexo}"/>
+                    <h:outputText value="#{bundle.ViewHijosLabel_peso}"/>
+                    <h:outputText value="#{hijosController.selected.peso}" title="#{bundle.ViewHijosTitle_peso}"/>
+                    <h:outputText value="#{bundle.ViewHijosLabel_talla}"/>
+                    <h:outputText value="#{hijosController.selected.talla}" title="#{bundle.ViewHijosTitle_talla}"/>
+                    <h:outputText value="#{bundle.ViewHijosLabel_observaciones}"/>
+                    <h:outputText value="#{hijosController.selected.observaciones}" title="#{bundle.ViewHijosTitle_observaciones}"/>
+                    <h:outputText value="#{bundle.ViewHijosLabel_idVacuna}"/>
+                    <h:outputText value="#{hijosController.selected.idVacuna}" title="#{bundle.ViewHijosTitle_idVacuna}"/>
+                    <h:outputText value="#{bundle.ViewHijosLabel_idPadre}"/>
+                    <h:outputText value="#{hijosController.selected.idPadre}" title="#{bundle.ViewHijosTitle_idPadre}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{hijosController.destroyAndView}" value="#{bundle.ViewHijosDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewHijosEditLink}"/>
+                <br />
+                <h:commandLink action="#{hijosController.prepareCreate}" value="#{bundle.ViewHijosCreateLink}" />
+                <br />
+                <h:commandLink action="#{hijosController.prepareList}" value="#{bundle.ViewHijosShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewHijosIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

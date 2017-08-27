@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateHijosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateHijosLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{hijosController.selected.id}" title="#{bundle.CreateHijosTitle_id}" required="true" requiredMessage="#{bundle.CreateHijosRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateHijosLabel_cedula}" for="cedula" />
+                    <h:inputText id="cedula" value="#{hijosController.selected.cedula}" title="#{bundle.CreateHijosTitle_cedula}" />
+                    <h:outputLabel value="#{bundle.CreateHijosLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{hijosController.selected.nombre}" title="#{bundle.CreateHijosTitle_nombre}" />
+                    <h:outputLabel value="#{bundle.CreateHijosLabel_apellido}" for="apellido" />
+                    <h:inputText id="apellido" value="#{hijosController.selected.apellido}" title="#{bundle.CreateHijosTitle_apellido}" />
+                    <h:outputLabel value="#{bundle.CreateHijosLabel_fechaNacimiento}" for="fechaNacimiento" />
+                    <h:inputText id="fechaNacimiento" value="#{hijosController.selected.fechaNacimiento}" title="#{bundle.CreateHijosTitle_fechaNacimiento}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateHijosLabel_lugarNacimiento}" for="lugarNacimiento" />
+                    <h:inputText id="lugarNacimiento" value="#{hijosController.selected.lugarNacimiento}" title="#{bundle.CreateHijosTitle_lugarNacimiento}" />
+                    <h:outputLabel value="#{bundle.CreateHijosLabel_edad}" for="edad" />
+                    <h:inputText id="edad" value="#{hijosController.selected.edad}" title="#{bundle.CreateHijosTitle_edad}" />
+                    <h:outputLabel value="#{bundle.CreateHijosLabel_sexo}" for="sexo" />
+                    <h:inputText id="sexo" value="#{hijosController.selected.sexo}" title="#{bundle.CreateHijosTitle_sexo}" />
+                    <h:outputLabel value="#{bundle.CreateHijosLabel_peso}" for="peso" />
+                    <h:inputText id="peso" value="#{hijosController.selected.peso}" title="#{bundle.CreateHijosTitle_peso}" />
+                    <h:outputLabel value="#{bundle.CreateHijosLabel_talla}" for="talla" />
+                    <h:inputText id="talla" value="#{hijosController.selected.talla}" title="#{bundle.CreateHijosTitle_talla}" />
+                    <h:outputLabel value="#{bundle.CreateHijosLabel_observaciones}" for="observaciones" />
+                    <h:inputText id="observaciones" value="#{hijosController.selected.observaciones}" title="#{bundle.CreateHijosTitle_observaciones}" />
+                    <h:outputLabel value="#{bundle.CreateHijosLabel_idVacuna}" for="idVacuna" />
+                    <h:selectOneMenu id="idVacuna" value="#{hijosController.selected.idVacuna}" title="#{bundle.CreateHijosTitle_idVacuna}" >
+                        <f:selectItems value="#{vacunasController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateHijosLabel_idPadre}" for="idPadre" />
+                    <h:selectOneMenu id="idPadre" value="#{hijosController.selected.idPadre}" title="#{bundle.CreateHijosTitle_idPadre}" >
+                        <f:selectItems value="#{padresController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{hijosController.create}" value="#{bundle.CreateHijosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{hijosController.prepareList}" value="#{bundle.CreateHijosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateHijosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
